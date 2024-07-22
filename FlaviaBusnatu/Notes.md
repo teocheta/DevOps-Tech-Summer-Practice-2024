@@ -46,3 +46,19 @@ man 8 ls -> go to the page 8 for ls
 man -f ls -> to see what sections/pages we have available
 man -f intro -> shows us multiple sections available
 whatis ls shows short description of the functionality = man -f ls
+
+Work with directories
+mkdir filename -> to create a directory
+mkdir testdir{1..10} -> create 10 directories, starting with testdir1 to testdir10
+mkdir f1 f2 f3 .... 
+mkdir -p parentdir/childdir{01..100} ->with -p we allowed the system to create parent directory and Under the parentdir we created 100 files, from childdir001 to childdir100
+cd filename -> In order to change the directory
+pwd ->This command shows your current work directory.
+cd .. ->We can come back to the previous directory
+
+There is a built-in variable called $HOME. This variable contains the path to the current user home directory 
+cd $HOME = cd ~ = cd
+rmdir filename -> to remove a directory
+rmdir testdir{1..10}
+
+we can remove parent directory only when it is empty
