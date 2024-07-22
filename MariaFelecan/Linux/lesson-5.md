@@ -10,9 +10,11 @@
         * uniq always works best with sort
         ex: cat numbers.txt | sort | uniq | wc -l
     
-> 
-* redirects all output from the left side of the sign, to the file on the right side of the sign
-* if file doesn't exist, create it
-* add content from redirected output
-* if file exists and it is not empty, clear the file and write the redirected output in empty file
+* the > operator
+    -> redirects all output from the left side of the sign, to the file on the right side of the sign
+    -> if file doesn't exist, create it
+    -> add content from redirected output
+    -> if file exists and it is not empty, clear the file and write the redirected output in empty file
+* the >> operator : appends the text, does not overwrite
+
 
