@@ -107,3 +107,7 @@ head -n2 testfile -> print only 2 lines
 
 tail testfile
 tail does exactly the same thing as heead does, but from the end of the file.
+
+tree sourcedir ->It recursively shows the content of the directory.
+cp source target -> copy existing file to the new filename or location
+mv sourcedir/one movedfiles -> to move the file from one place to another
