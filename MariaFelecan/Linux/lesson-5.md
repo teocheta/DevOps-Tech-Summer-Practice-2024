@@ -1,6 +1,6 @@
 * pipes = |
     we can combine as many pipes as we wish
-- useful commands
+     useful commands
     -> grep : searches for a pattern in file
     -> wc : counts words
         * wc -l file.txt: counts the nr f lines from file.txt
