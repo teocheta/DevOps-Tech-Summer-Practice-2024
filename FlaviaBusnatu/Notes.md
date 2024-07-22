@@ -62,3 +62,27 @@ rmdir filename -> to remove a directory
 rmdir testdir{1..10}
 
 we can remove parent directory only when it is empty
+rmdir -p maindir/childdir
+rm filename -> to remove a file
+
+rmdir parentdir/*
+rmdir parentdir
+
+rm - rf dir ->-r means go recursively through directories (and treat everything as file)
+              -f - force. Another words, do not ask, assume the user knows what he is doing.
+
+FILES
+
+touch filename ->to create an empty file
+touch my{01..100}file
+
+ls my*file -> * means any string
+
+touch try1 try2 try01
+ls try? ->means any single character(try1, try2)
+
+VIM
+vim newfile -> opened a vim editor
+In order to start typing anything in editor (enter insert mode), hit i
+type....
+hit ESC key to enter the command mode, and type :wq
