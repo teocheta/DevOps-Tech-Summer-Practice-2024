@@ -86,3 +86,24 @@ vim newfile -> opened a vim editor
 In order to start typing anything in editor (enter insert mode), hit i
 type....
 hit ESC key to enter the command mode, and type :wq
+If you changed something in the file and you don't want to save the changes, press :q!.
+
+PIPES
+The pipes and redirections are used to send (or retrieve) some information sent from one command or script to another command or script. It works on files too.
+The structure looks liKe this:
+command1 | command2 | command3
+
+cat numbers.txt ->print the file
+cat numbers.txt | wc -l -> print the number of lines in the file
+It is important to remember, uniq always works best with sort. And sort is first.
+cat numbers.txt | sort | uniq | wc -l
+
+ls -al > directorylist.txt ->redirects all output from the left side of the sign, to the file on the right side of the sign
+> will create file (if not exists) and rewrite all data as fresh file. >> behaves similarly, however, if there is any content in the fill, this redirection will add theoutput of the command on the end of existing content.
+
+head testfile ->It we want to print first lines of the file, we can use head. By default head shows 10 lines.
+
+head -n2 testfile -> print only 2 lines
+
+tail testfile
+tail does exactly the same thing as heead does, but from the end of the file.
