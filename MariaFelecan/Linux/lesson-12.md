@@ -28,3 +28,13 @@ press ESC to exit the command
 -  clearing the history:
 
     history -c : this only clears the history in the memot, not in the files
+
+    > .another_history : this redirects nothing to the history
+
+- disabing the history:
+
+    set +o history
+
+    echo 'set +o history' >> ~/.bashrc  = disabling history for the current user
+
+    echo 'set +o history' >> /etc/profile  = disabling history for all users in the system
