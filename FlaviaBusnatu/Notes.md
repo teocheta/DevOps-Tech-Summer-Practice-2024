@@ -374,3 +374,24 @@ CRONTAB
 cron is a service responsible for control and execution of scheduled tasks. It is started when system is booting and works till the system is shut down.  
 So, to conclude this part, cron is a service which controls multiple crontabs  
 
+crontab is simply a list of tasks or commands which are scheduled to be executed on specific date and time.  
+/etc/crontab -> the system wide crontab.all users can read, but only admins can edit this file.  
+In this directory we have a few more directories.  
+/etc/cron.daily  
+/etc/cron.hourly  
+/etc/cron.monthly  
+/etc/cron.weekly  
+These directories contain scripts which are executed... daily, hourly, monthly or weekly.  
+We have four anacron command executed with different scheduling. An anacron is a scheduler too. Unlike the cron, anacron doesn't assume that the machine is run continuously without stops.  
+
+Example:  
+1 17 7 4 2 /usr/bin/ls >/dev/null 2>&1 ->a crontab  
+-minute ->it is 1 minute after specified hour.  
+-hour ->defines hour of execution(17)  
+-day of the month(7)  
+-month(apr)  
+-weekday
+in our example, system will execute the command at 17:1 on 7th of April. But only if it will be Tuesday.  
+If we set day/month, we generally not set weekday. The same in oposite direction.  
+If we want to keep every in any of position, we use *(So, if we set 15 * as two first elements, it means: execute 15 minutes after every hour)  
+
