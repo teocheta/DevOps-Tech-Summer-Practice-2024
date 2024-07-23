@@ -1,4 +1,4 @@
-What is ls?
+What is ls?  
 This is the list command. It allows us list the content of the directory.
 
 the colorized list of content
@@ -335,3 +335,40 @@ When we log in to Linux we are "normal" user. With limited access to programs, d
 Root is a master of the system. Root can do everything. Simply, it is an admin
 su ->to use another user
 su - student1
+
+Let's check student1 is sudo is configured for him.
+su - student1
+sudo ps
+
+As mentioned, /var/log is the default location in all Linux systems for logs
+syslog->The main system log. Contains all important information about the system and applications.
+auth.log->Contains information about authorizations. All user login attempts (with information if successful or not), logout, password changes, remote logins and use of sudo
+dmesg->is a kernel ring buffer, not the log.It allows us to interact with kernel and get information by querying bootup messages.
+
+kern.log->Stores Kernel messages
+boot.log-> information about started services, applications, disks configurations and so on.
+lastlog	-> Contains information abount last logins
+faillog	-> use this file with faillog utility. Logs fails, like login failures
+wtmp.log->Contains login infomration. However, it doesn't show information similar to lastlog, but used by other utilities, like who
+dpkg.log->Contains data about packages management - install, remove, update, etc
+cat /var/log/dpkg.log ->how to check a log
+logger "This is a test message" -> to push a message in log
+
+STREAMS 
+There is a command line with prompt waiting for interacting with you. This interaction is executed by two streams - output and input.
+
+First stream is called standard input.In short, we use the name STDIN.Its file descriptor is 0.
+When STDIN is waiting for instructions passed to it, standard output displays responses from the system (in the simplest scenario). Its file descriptor is 1 and we name it STDOUT.
+The third stream is somehow special. It is standard error, with 2 as file descriptor. We call it STDERR.in this way we can differentiate the actions taken when output from our scripts are correct or there are some errors.
+
+cat notexists.txt 2> errorfile ->to redirect an error
+
+/dev/null ->a virtual file to which we can write(we cannot read)- like a void
+
+cat notexists.txt 1> catfile 2> errorfile ->we directed STDOUT to catfile and if we had an error we write it to errorfile
+
+cat notexists.txt > capture.txt 2>&1 ->capture STDOUT and STDERR in the same file
+This uses the &> redirect instruction. This instruction allows you to tell the shell to make one stream got to the same destination as another stream
+
+CRONTAB
+cron is a service responsible for control and execution of scheduled tasks. It is started when system is booting and works till the system is shut down.
