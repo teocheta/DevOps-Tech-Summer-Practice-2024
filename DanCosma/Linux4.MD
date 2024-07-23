@@ -20,5 +20,24 @@ Comenzi:
 * rm testdir/mytest{01..1000} multiple
 * rm -rf testdir 
 
+#  VIM 
+
+Comanda touch nu este singura modalitate de a creea un fisier, in acest caz folosim VIM.
+
+Folosim comanda "vim mynewfile " pentru a deschide editorul VIM in terminal. 
+
+Pentru a scrie ceva im terminalul VIM acesta trebuie sa fie pus in modul insert(APASAM i).
+
+Pentru a intra in Command mode apasam ESC apoi scriem: **:wq** pentru a parasi editorul.
+
+
+
+
+
+
+
+
+
+
 
 
