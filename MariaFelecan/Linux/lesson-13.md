@@ -39,7 +39,23 @@
 
     *to configure what editor to use: update-alternatives --config editor
 
-    
+    user pos1=(pos2:pos3) pos4
+    %group pos1=(pos2:pos3) pos4
+
+    pos1 - applies to all hosts
+    pos2 - user can use all commands as all users (i.e. root can ls as user03, etc)
+    pos3 - user can use commads as all groups
+    pos4 - user can use all commads
+
+    pos values can be ALL, 
+
+    su - we need to provide password for the USER WE WANT TO USE
+    sudo - we need to provide the pasword for the CURRENT USER
+
+    ex: 
+    student2 ALL=(ALL:ALL) NOPASSWD:ALL - this user doesnt need to confirm themselves with the password
+    student1 ALL=(ALL:ALL) ALL 
+
 
 
 
