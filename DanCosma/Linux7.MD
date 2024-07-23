@@ -137,7 +137,34 @@ ls -l movedfiles
 
 ls -l movedfiles/newdir 
 
+MORE POSSIBILITIES:
 
+In order to copy file, or better to say, copy content of the file, we can use redirections.
+
+We have a special file - .profile. Let's use this file to copy the content.
+
+**ls -l newfilewithcontent.txt**
+File doesn't exist in the first place. Then:
+
+cat .profile > newfilewithcontent.txt
+
+ls -l newfilewithcontent.txt 
+
+Now we have the new file. Lets see, if the content was copied.
+
+We can do it is simple way:
+
+cat .profile
+
+cat newfilewithcontent.txt 
+
+In this way we visually confirmed that files are the same.
+
+We can check if there is any difference between two files. We do it with a new command **- diff**. This is the way to compare two files.
+
+Ex: **diff .profile newfilewithcontent.txt**
+
+No output means that both files are the same.
 
 
 
