@@ -1,0 +1,48 @@
+root = master of the system
+$ su - student1 = to log in as student1
+$ exit  = to logout to previous user
+$ su -  = root is assumed and you need to give root a password
+->root does not have a password set
+->root should be accessed only with elevated privileges by allowed users
+
+Elevate privileges:
+->su log us as root, sudo elevates our privileges on behalf of root
+$  sudo <command> = to run commands as root
+$ sudo ps
+-> bash is the parent session
+-> sudo created its own session, where the ps were finally run
+$ sudo -i = to interactively use sudo mode and use elevated privileges in the full session
+-> -i argument means that we want to use sudo with login option, another words, to switch the session to privileged one
+
+/etc/sudoers ->to configure sudoers file
+root ALL=(ALL:ALL) ALL = config line for user
+%sudo ALL=(ALL) NOPASSWD:ALL = config line for group
+
+$ update-alternatives --config editor = configure vistudio to use vim
+$ vistudio = to edit file /etc/sudoers
+
+Config line:
+
+user pos1=(pos2:pos3) pos4
+
+or
+
+%group pos1=(pos2:pos3) pos4 ->for group
+
+pos1 - applies to all hosts
+pos2 - user can use all commands as all users (i.e. root can ls as user03, etc)
+pos3 - user can use commads as all groups
+pos4 - user can use all commads
+
+su - provide password of the user you want to use
+sudo - provide password of current user
+
+configure user with password: student1 ALL=(ALL:ALL) ALL ->add it to config file
+student2 ALL=(ALL:ALL) NOPASSWD:ALL ->config user without pasword
+
+->sudoers.d directory for better granulation
+
+#includedir /etc/sudoers.d ->means that in order to evaluate sudo config, files in /etc/sudoers.d directory will be used
+$ echo "student2 ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/student2
+
+$ echo "student3 ALL=(ALL:ALL) ALL" > /etc/sudoers.d/student3

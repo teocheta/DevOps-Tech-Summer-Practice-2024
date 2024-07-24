@@ -1,0 +1,34 @@
+$ history
+$ history | grep cat 
+$ history 3 = last 3 commands
+
+Configuration:
+-> history is configured somewhere
+
+HISTCONTROL=ignoredups:ignorespace - > if you repeat the same command twice (one by one) only one occurence will be storted in history 
+shopt -s histappend -> history file should not be overwritten, but all commands will be stored on the end of the file
+HISTSIZE=1000 ->  history available in terminal will keep 1000 records
+HISTFILESIZE=2000 -> history kept in history file will contain 2000 records
+
+-> history is kept in .bash_history
+-normally written at the end of the session
+$ history -a - to dump the session history in the file
+
+We can change the value for this (and only this) session. Let's do it for the file where history is stored:
+
+$ HISTFILE="/root/.another_history"
+
+$ history -c = clears history in memory not files
+$ > .another_history = redirects nothing to the file(clears file)
+
+Disable history:
+
+$ set +o history
+
+Disable history for current user:
+
+$ echo 'set +o history' >> ~/.bashrc
+
+And for all users in the system:
+
+$ echo 'set +o history' >> /etc/profile

@@ -1,0 +1,36 @@
+$ ps = process status
+
+-> session itself and processes executed by the session
+-> accepts argument with and without dash.
+$ ps a 
+$ ps -a
+$ ps T
+$ ps -A = list of all processes
+
+PID - quite obvious, this is the process id.
+TTY - Terminal associated with the process. Here is a very detailed reading about TTY.
+TIME - total time of CPU usage
+CMD - the command which is running
+STAT - state of the process
+
+Statuses:
+D - uninterruptible sleep (usually IO)
+I - Idle kernel thread
+R - running or runnable (on run queue)
+S - interruptible sleep (waiting for an event to complete)
+T - stopped by job control signal
+t - stopped by debugger during the tracing
+X - dead (should never be seen)
+Z - defunct ("zombie") process, terminated but not reaped by its parent
+
+Some statuses may have the second letter. Let's list the most important:
+
+< - high-priority (not nice to other users)
+N - low-priority (nice to other users)
+s - is a session leader
+l - is multi-threaded
++ - is in the foreground process group
+
+$ ps -ef = Used mostly when someone wants to determine the PID of the process
+$ ps aux =  most important info, like PID, status and resources usage
+$ ps aux --forest and $ pstree = used for hierarchy

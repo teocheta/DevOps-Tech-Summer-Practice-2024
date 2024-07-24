@@ -1,0 +1,23 @@
+copy = copy the existing file to new location; source file still available
+$ tree sourcedir = recursively shows the content of the directory
+$ cp source target = command to copy the file
+
+-> copy a file from one directory to another directory
+$ cp one ../targetdir -> from our current location, the target is one level higher -> ..
+$ cp one ../targetdir/another-one = copy and change the filename
+$ cp two01 two02 ../targetdir = copies files two01 and two02 to targetdir directory
+we can use wildcards to copy more files(ex: *, ?)
+
+->copy the whole directory
+$ cp -R sourcedir anotherdir
+-R = recursively
+
+move = move files from one location to another; source file not available
+$ mv sourcedir/one movedfiles
+$ mv anotherdir/one movedfiles/another-one = move and change name
+$ mv sourcedir/two01 sourcedir/two02 movedfiles = moves files two01 and two02
+$ mv anotherdir newdir = move directories
+->we can use redirections to copy the content of the file to another file
+$ cat .profile > newfilewithcontent.txt =copies content of .profile to newfilewithcontent.txt
+$ diff .profile newfilewithcontent.txt = to check if there are differences between the two files ->no output means files are the same
+

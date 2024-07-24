@@ -1,0 +1,84 @@
+users in linux:
+-standard
+-elevated privileges
+-root
+
+$ whoami = to see what type of user i am
+$ id = User ID (UID), primary group ID (GID) and other groups to which user belongs to.
+$ id ubuntu = info about user ubuntu
+
+UID 0 is reserved for root.
+1-99 are reserved for predefined accounts (like games, mail, www-data, sys, bin and more)
+100-999 reserved for system and administrative accounts.
+1000+ are reserved for users
+
+group = abstract which combines many users in similar entity (for the same privileges, purpose, actions, etc)
+
+GID 0 is reserved for root.
+1-99 are reserved for system and application use.
+100+ are for users.
+
+Files involved in users configurations:
+1. passwd
+-located in /etc
+-structure-> username:password:UID:GID:description:homedir:shell
+-shell is the program which takes the commands sent by user, interprets it, and return the answer
+
+$ cat /etc/shells = available shells
+
+2.shadow
+-contains sensitive information about the user, like password, and other configurations
+-second element = password->if it is set->hashed and not retrievable
+                         ->* = no password set
+                         ->! = password was never set
+
+3.group
+-/etc/group contains information about groups
+-structure-> group name
+            password
+            GID
+            users belong to the group
+
+4.gshadow
+- encrypted passwords for groups.
+
+Creating user:
+$ file =  gives us information about the object
+$ command $(another_command) = First, the $(another_command) will be executed. We enforce this by using $() then output of this command will be executed as parameter for command
+
+$ useradd testuser1 = create a new user or update default new user information
+$ adduser testuser2 =  add a user or group to the system; more verbose, interactive, asks for password for user and other information 
+-password is not set for testuser1
+-description is added for testuser2
+-testuser1 has sh set and testuser2 - bash as shell.
+-testuser1 has the home directory defined, but it is not created
+
+-d - create home directory in specified location, if we want to change
+
+-m - create the home directory
+
+-p - password
+
+-s - provide shell
+
+-c - comments, or description of the account
+
+Moifying user:
+$ passwd <user> = to modify password; If user is not provided, the password will be changed for current user
+$ usermod testuser3 -g testuser2 = to change group
+$ usermod testuser3 -aG 1001 = to add a secondary group
+$ usermod testuser3 -d /home/anotherdir  = creates a home directory
+
+In order to properly move home directory (not just create if it doesn't exist, remember adduser without parameters?) we need to add another argument.
+
+$ usermod testuser3 -d /home/newdir -m
+
+$ usermod testuser3 -s /bin/sh = to modify the shell
+
+$ userdel testuser1 = to remove user
+
+$ usermod testuser3 -G "" = to remove secondary groups
+
+r - remove files
+f - force removal (in case if files don't belongs to the user)
+$ userdel -rf testuser3

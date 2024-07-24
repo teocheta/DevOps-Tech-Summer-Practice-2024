@@ -1,0 +1,25 @@
+$ ls -al = list all files in long format and with hidden files
+
+ex:
+alias lh='ls -alh' ->this alias is available in this session only
+$ alias = shows all defined aliases in the session
+$ unalias lh = removes alias
+
+-> make alias permanent
+$ echo "alias lh='ls -alh'" >> .bashrc = adds it to the file .bashrc
+
+->we need to load the file into the ession to use the alias
+$ source ./.bashrc = reads and executes scripts (content of the files, as it doesn't need to be script) in current shell
+
+
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+$ echo "alias lh1='ls -alh'" >> .bash_aliases
+$ source ./.bashrc
+
+->aliases for other users
+-we add them here : /etc/profile.d
+$ echo "alias lh2='ls -alh'" >> /etc/profile.d/99-aliases.sh

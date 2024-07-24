@@ -1,0 +1,32 @@
+$ file tstfile = to check if it is textfile
+$ cat testfile = prints the content of testfile
+$ vim / $ vi -texteditors
+esc +  :q = quit 
+       :q! = don't save changes 
+       :wq = wrte and quit
+
+INSERT mode = edit the file
+COMMAND mode = interact with vim and do actions (save, quit)
+VISUAL mode = selection of text
+
+$ view testfile = readonly mode => :q to quit
+
+$ more tstfile = prints a smaller part of the file(navigate with enter + q to quit)
+
+$ less testfile = allows to navigate and search through file
+ /Resolution =  searches through the file for Resolution string 
+ n, N down and upwards in the file
+ q to quit
+$ cat testfile | more
+$ cat testfile | less
+$ head testfile = prints first 10 lines
+$ head -n2 testfile = prints first 2 lines
+$ tail testfile = prints last 10 lines
+-> can be used with pipes
+ex:
+$ cat testfile | head -n4 | tail -n2
+
+
+
+
+
