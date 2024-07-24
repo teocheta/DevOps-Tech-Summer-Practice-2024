@@ -1,0 +1,45 @@
+Permission matrix:
+
+object type, owner permisions, group permissions, other permissions
+
+1. Object type
+
+- - normal, regular file
+d - directory
+l - soft (symbolic) link
+b - block special file (like hard drive)
+c - character special file (like /dev/null)
+n - network file
+p - FIFO
+s - socket
+
+Owner = This is the user who owns the file. Not necessairly the author, but current owner.
+Group = Every file in Linux can have the distinct permissions for one, selected group. By default, this group is set to the owner's group, but it can be changed. For example, the config file of the application can have a owner (a user who uploaded it), but the application is not run by this user but special user (with special group). So, we can allow this group to have distinct access to this file.
+Others = All other users in the system.
+
+r - means Read permission is granted
+w - means Write permission is granted
+x - means eXecute permission is granted
+
+Setting permissions:
+1. Absolute mode:
+0	no access
+1	eXecute
+2	Write
+3	Write + eXecute
+4	Read
+5	Read + eXecute
+6	Read + Write
+7	Read + Write + eXecute
+
+2. Symbolic mode:
+
+=	Set the whole block and override the previous permissions
+-	Remove the permission for specific user
++	Add the permission for specific user
+
+u	Owner
+g	Group
+o	Other
+a	all (owner, group and others)
+

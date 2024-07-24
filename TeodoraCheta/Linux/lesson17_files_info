@@ -1,0 +1,32 @@
+1.File
+
+$ file nume_fisier = type of the file
+    empty text file
+    text file with content
+    directory
+    binary exacutable (i.e. /bin/bash)
+    packed file
+    /dev/vda (or another device)
+
+2.Stat
+
+$ stat mybashscript.sh
+
+File - it is obvious, this is the name of our file.
+Size - the size of thee file in bytes.
+Blocks - the size of the file, but in blocks.
+IO Block - size of the each blocks.
+regular file - the type of the object. We will not get detailed information about the language, only the type, like file, pipe, directory or special file.
+Device - hex/decimal ID of the device on which object is located.
+Inode - Inode ID. Inode and Device create the unique identification of the object.
+Links ({{}} - number of hard links created. For now is enough to understand, that every file will have 1, if there is no hard links created. 0 means the file is deleted.
+
+-> If you run stat agains the directory, Links will show number of files in the directory.
+
+Access - the permission matrix for the object.
+Uid and Gid - owner and owner's group identifiers.
+Access, Modify and Change - these three represent timestamps when some specific action was taken against the file. Access shows almost the time of last access to the file. But for specific reason, in modern Linux systems (read optimization) this value will be updated only if is older than Modify timestamp. Modify says about last modification of the content. And Change is about all changes - content and attributes (like permissions, for example).
+Birth is reserved for the time when file was created, but is not implemented in Linux systems.
+
+-f = gives us information about filesystem.
+-t = will return condensed version of the information

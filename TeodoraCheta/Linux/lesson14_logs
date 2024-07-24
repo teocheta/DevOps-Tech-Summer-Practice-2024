@@ -1,0 +1,106 @@
+Standard view on logs:
+
+/var/log = the default location in all Linux systems for logs
+best practice is to have /var/log as separate filesystem
+Filesystem = layer, or structured collection of data in partition on disk drive
+
+Files in /var/log directory:
+
+1. syslog = main system log
+2. auth.log = info about authorizations
+3. dmesg = a kernel ring buffer;  what is going on during the system's work.
+4. kern.log = Kernel messages
+5. boot.log = information about started services, applications, disks configurations etc
+6. lastlog =  information about last logins
+7. faillog = Logs fails, like login failures
+8. wtmp.log =  login infomration; different than lastlog; used by who
+9. dpkg.log = data about packages management - install, remove, update, etc
+ => system logs
+
+ -> application logs -> stored for ex in /var/log/nginx
+
+Watch the logs:
+
+-> all logs are text files, except lastlog(binary)
+-> cat, tail, head, less, more, grep
+$ tail -f /var/log/nginx/access.log
+
+Push message to logs:
+
+$ logger "This is a test message"
+
+Journactl:
+
+-> new way of storing logs, journald service
+-> data stored by journalctl is binary
+
+-> syslog message levels
+
+    0: emerg = highest level and shouldn't be used by applications. It means that system is unusable.
+    1: alert
+    2: crit
+    3: err
+    4: warning
+    5: notice
+    6: info
+    7: debug = often used during the development
+
+$ journalctl - shows all systemd logs
+
+Where systemd stores its files?
+
+$ cd /var/log
+$ cd journal
+
+-> directories that contain logs stored for each boot
+
+$ journalctl --list-boots = ordered list of boots
+
+-> format: offfset for boots(0 = current boot , lower numbers = older boots), absolute reference of boot ID, start date of log, end date
+
+$ journalctl -b -10 =  displays "boot", or data collected during the run of the system done 10 reboots (stop/starts) ago.
+
+$ journalctl -b 0 = displays the current boot
+
+$  journalctl -b 6a8e47d21a894cc3944bb1982d13d13f = used with boot id
+
+$ journalctl --since "$(date '+%Y-%m-%d %H:%M:%S' --date='5 minutes ago')" = log entries from specific time
+
+    journalctl -> command for work with journal
+    --since -> argument for limit logs from specific date
+    "$()" -> part this everything what is inside brackets will be executed and output put as value to --since argument
+    date = the command itself shows current date
+    '+%Y-%m-%d %H:%M:%S' formats the output. We need to pass date in this format to journalctl
+    --date='5 minutes ago' will take the time from 5 minutes earlier
+
+$ journalctl --since "$(date '+%Y-%m-%d %H:%M:%S' --date='5 minutes ago')" --until "$(date '+%Y-%m-%d %H:%M:%S' --date='2 minutes ago')" = logs from specific range
+
+$ journalctl --since yesterday = logs from today and yesterday
+
+$ journalctl -u nginx.service = lists only nginx service.
+
+$ journalctl -u nginx.service --since today = lists nginx related entries from today
+
+$ journalctl _PID=8088 = lists entries for PID 8088
+
+$ id -u www-data = collect id of user www-data
+
+$ journalctl _UID=33 --since today = prints records for specified UID
+
+$ journalctl _UID=$(id -u www-data)
+
+$ journalctl -F _GID = lists all GIDs (Group IDentifiers) with entries in journal
+
+$ journalctl -k = displays kernel messages
+
+$ journalctl -p err -b = display errors, criticals, alerts and emergencies.
+
+$ journalctl -b -u nginx -o json-pretty = parsing and better formatting
+
+$ man systemd.journal-fields = for more info
+
+
+
+
+
+

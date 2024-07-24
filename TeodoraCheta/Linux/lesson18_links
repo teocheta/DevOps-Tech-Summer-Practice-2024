@@ -1,0 +1,27 @@
+Links:
+
+-> shortcuts to original destination/file
+-> when you open the link, the system sees it as object opened from the location where it resides, not the original location.
+
+$ ln SOURCE TARGET = creates a link
+-> target will be the actual link.
+
+$ ln -s SOURCE TARGET
+-> to create a soft link
+
+Soft links:
+
+$ ln -s ../source/file1 softlink
+lrwxrwxrwx 1 root root 15 May 15 11:20 softlink -> ../source/file1
+-> l - informs us that is a link
+
+$ ln -s /root/source/file1 softlink2
+-> ls shows us exact object, exact path used to create the link. These two links direct us to the same file, however the paths look different
+
+$ stat softlink
+
+-> Links is still 1. Why? Simple. This is the count of hard links.
+
+$ unlink LINK = to delete a link
+
+-> This link is soft, what means in this case that link is a pointer to the source.

@@ -1,0 +1,95 @@
+1. Create directories structure
+Please create the test directory. When done, please create onefile and manyfiles directories inside test.
+
+mkdir test
+cd test
+mkdir onefile
+mkdir manyfiles
+
+2. Create files
+We created some directories, it is time to create files!
+
+In the onefile directory create a file called myfile.txt and write the string: Hello! This is my string! . The method how you do it is up to you.
+
+cd onefile
+touch myfile.txt
+vim myfile.txt
+
+3. Create files
+This time you need to create a lot of files.
+In the manyfiles directory create 10.000 files, called myfile<number> (from myfile01 to myfile10000). The method how you do it is up to you.
+
+cd ..
+cd manyfiles
+touch myfile{01.10000}
+
+4. Use pipe
+We still have our onefile/myfile.txt file available. Your task is to:
+
+Create onefile/copied file with string New content
+pipe content of onefile/myfile.txt to onefile/copied. Both strings must be in the file!
+
+cd ..
+cd onefile
+touch copied
+vim copied
+cat myfile.txt >> copied
+
+5. Copy
+We continue our work with test/onefile/myfile.txt file. Now you have to:
+
+Copy this file into higher directory (test/).
+Copy this file into /tmp with file name copiedfile .
+
+cp myfile.txt ../
+cd ..
+cp myfile.txt /tmp/copiedfile
+
+6. Move
+We continue our work with test/onefile/myfile.txt file. Now you have to:
+
+Move test/onefile/myfile.txt to /root directory.
+Move test/manyfiles into test/moved.
+
+mv 
+
+
+7. Alias
+create alias mydir which will list user's home directory.
+
+The alias must be configured in .bash_aliases file.
+
+cd
+echo "alias mydir='ls -al'" >> .bash_aliases
+
+8. Users
+Create three users:
+
+administrator
+appuser
+anotheruser
+All should have home directory created (in standard location) and bash should be set as default shell.
+
+Add appuser group as a secondary to administrator.
+
+adduser administrator
+adduser appuser
+adduser anotheruser
+ usermod administrator -aG "appuser"
+
+9. Users
+Remove anotheruser , please remove user's files and home directory also.
+
+userdel -rf anotheruser
+
+10. Users
+Add appuser to sudoers by adding special group as secondary to the user.
+
+Add administrator to sudoers. This must be done by creating separate config file called administrator in the proper location. Administrator must be able to execute any command as root without password.
+
+
+
+
+
+
+

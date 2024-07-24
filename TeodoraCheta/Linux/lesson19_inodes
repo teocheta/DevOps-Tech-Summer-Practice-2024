@@ -1,0 +1,10 @@
+Inode
+-> a unique identifier for a specific piece of metadata on a given filesystem, and the disk block location of this object
+
+$ df /dev/vda1 = shows info about filesystem
+
+$ df -i /dev/vda1
+
+-> To check inode of specific file, we use -i argument for ls command.
+-> A lot of small files might drain all of the inodes (one file, one inode), even if the filesystem is not full. 
+-> And the oposite, big files will take all space on filesystem, but there will be plenty unused inodes

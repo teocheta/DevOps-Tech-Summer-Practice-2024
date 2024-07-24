@@ -1,0 +1,56 @@
+Cron:
+
+-> a service responsible for control and execution of scheduled tasks
+-> started when system is booting and works till the system is shut down
+-> service that controls multiple crontabs
+
+$ systemctl status cron.service = to check the status of the service
+-> Active: active (running) =  means that service is active
+
+$ ps aux | grep cron = shows processes related to the cron service
+
+Crontab:
+
+->  list of tasks or commands which are scheduled to be executed on specific date and time
+
+1. /etc/crontab  = the system-wide crontab
+-> all users can read, but only admins can edit this file
+->  system related, admin stuff
+-> associated directory - /etc/cron.d -> In this directory we have a few more directories: /etc/cron.daily, /etc/cron.hourly etc
+=>  contain scripts which are executed... daily, hourly, monthly or weekly.
+-> How these are executed? =>  four anacron command executed with different scheduling in /etc/crontab
+-> anacron = scheduler; doesn't assume that the machine is run continuously without stops
+
+2. /var/spool/cron/crontabs
+-> In this directory user's crontabs are stored
+
+Set the task in crontab:
+
+1 17 7 4 2 /usr/bin/ls >/dev/null 2>&1
+
+-> minute defines on which minute scheduler should execute the program. In our example above, it is 1 minute after specified hour.
+-> hour defines hour for execution. In our example it is 5PM
+-> day of the month as above, but for day in the month. In the example above it is 7th day of the month.
+-> month as you can expect, the month. It may be a number, or text. In our example it is 4th month, so April. You can use apr.
+-> weekday final option defines the weekday. In our example it is 2, what means Tuesday. Please remember, Sunday can be defined as 0 and 7 as well.
+
+-> if we want to keep every in any of position, we use *
+
+-> user - we do not set user for user related crontabs, it doesn't make any sense, but for system wide crontab this possibility is valuable
+-> command
+
+Setting cronjob:
+
+-> cronjob = entry in the crontab
+
+$ crontab -l  = tp list jobs
+$ crontab -e = opens crontab editor
+ex: 12 9 23 * * /usr/bin/ls -al > logfile 2>&1
+
+Logs:
+$ cat /var/log/syslog
+$ journalctl -u cron
+$ systemctl status cron.service
+
+
+

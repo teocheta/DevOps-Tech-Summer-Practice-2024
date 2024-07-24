@@ -40,9 +40,9 @@ sudo - provide password of current user
 configure user with password: student1 ALL=(ALL:ALL) ALL ->add it to config file
 student2 ALL=(ALL:ALL) NOPASSWD:ALL ->config user without pasword
 
-->sudoers.d directory for better granulation
-
-#includedir /etc/sudoers.d ->means that in order to evaluate sudo config, files in /etc/sudoers.d directory will be used
+-> sudoers.d directory for better granulation
+::!quit
+#includedir /etc/sudoers.d -> means that in order to evaluate sudo config, files in /etc/sudoers.d directory will be used
 $ echo "student2 ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/student2
 
 $ echo "student3 ALL=(ALL:ALL) ALL" > /etc/sudoers.d/student3
