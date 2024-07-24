@@ -11,7 +11,7 @@ VISUAL mode = selection of text
 
 $ view testfile = readonly mode => :q to quit
 
-$ more tstfile = prints a smaller part of the file(navigate with enter + q to quit)
+$ more testfile = prints a smaller part of the file(navigate with enter + q to quit)
 
 $ less testfile = allows to navigate and search through file
  /Resolution =  searches through the file for Resolution string 
