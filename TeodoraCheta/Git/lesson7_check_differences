@@ -1,0 +1,18 @@
+1. Check the changes
+
+$ git diff = allows to check the differences between HEAD and current working directory. Another words, what was changed during our recent work
+-> differences between commit and working directory
+-> this command checks HEAD by default
+
+$ git diff HEAD~1
+
+$ git diff HEAD~1 testfile-01 = nformation about testfile-02 only in comparision of current working directory and one commit before HEAD
+
+2. Staged differnces
+
+$ git diff --staged = to see the difference between staged work and HEAD
+
+$ git show
+
+
+

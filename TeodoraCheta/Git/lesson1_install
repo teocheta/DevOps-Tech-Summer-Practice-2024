@@ -1,0 +1,3 @@
+$ dpkg -l | grep git = to check if git is installed
+$ apt install -y git = to install
+$ git --version = This command will show you version of installed package

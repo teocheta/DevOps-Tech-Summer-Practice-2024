@@ -1,0 +1,31 @@
+1. .gitignore
+
+-> Git gives us the possibility to control what will be synchronized with remote and what will be not.
+
+We don't want to commit
+
+seconddirectory{{}} directory and its content
+neveringit file
+But these are in git status, right?
+
+Let's create gitignore file
+
+touch .gitignore
+
+echo neveringit >> .gitignore
+
+echo seconddirectory >> .gitignore
+
+cat .gitignore
+
+
+2. More configs
+
+**/neveringit
+!firstdirectory/neveringit
+
+First line says explicitly - all files anywhere in the structure (and now it is clear, readable and visible)
+
+In second line the exlamation mark negates the pattern. Another words, we negate the deny and allow this file to be sent to remote
+
+-> neveringit file is never added to commit, except only one situation: when we forced it

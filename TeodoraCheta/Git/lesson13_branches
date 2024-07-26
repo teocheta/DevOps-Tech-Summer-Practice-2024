@@ -1,0 +1,37 @@
+1. Create branches
+
+-> branch represents an independent line of development
+
+$ git branch = to check what branch we are on 
+
+$ git checkout -b newbranch
+
+-> git checkout moves us between branches. When we add -b, a new branch is created
+
+$ git branch -r = we list branches from remote
+
+$ git merge newbranch --no-edit = to merge the changes done on newbranch
+
+-> Merge created a new commit to reflect changes caused by the process.
+
+As we finished work on branch, we can delete it
+
+$ git branch -d newbranch && git branch
+
+2. Conflicts
+
+-> During the work on two branches it is possible that the changes will be implemented to the same file
+
+Well, testfile-02 was updated that way, that different changes are done in the same place.
+
+We need to fix the conflict.
+
+Let's take it easy now. We remove only these things which are pointing the conflict.
+
+$ cat testfile-02
+
+$ sed -i '8d' testfile-02 && sed -i '5d' testfile-02 && sed -i '3d' testfile-02 && cat testfile-02
+
+3. Better approach
+
+->  good practice is to merge the master to your branch before merge to master.

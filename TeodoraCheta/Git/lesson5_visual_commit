@@ -1,0 +1,4 @@
+$ git config --global --list | grep editor = to see what editor we have configured
+$ git config --global core.editor vi = configure vi as editor
+$ git commit testfile-02
+

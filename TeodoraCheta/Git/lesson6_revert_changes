@@ -1,0 +1,13 @@
+Git revert:
+
+$ git revert --no-edit HEAD
+
+-> --no-edit we informed git that we don't want to pass any message and we ask to use default
+-> We keep the history and logic process of work, however we bring back the part of the work from kind of 'backup'
+
+$ git revert --edit HEAD~3 = to revert multiple commits
+
+--edit = to add commit message
+
+->  HEAD is the current 'place' where we are. For now, let's think about it as combination of current branch and current place in git history
+

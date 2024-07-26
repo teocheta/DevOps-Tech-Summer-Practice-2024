@@ -1,0 +1,60 @@
+1. Initialize the repository
+
+-> Create a directory
+
+$ mkdir test-repo
+
+-> navigate there
+
+$ cd test-repo
+
+-> The directory is obviously empty
+
+$ ls -al
+
+-> Now it is time to initialize repository
+
+$ git init
+
+-> Now you should be able to execute status command
+
+$ git status
+
+-> And also the .git directory
+
+$ ls -al
+
+2. Commit first file
+
+$ touch newfile && echo hello > newfile
+
+$ git status
+
+=> new file is untracked
+
+3. Add files
+
+$ git add newfile 
+
+-> to stage changes
+
+=> the file is tracked and ready to be commited
+
+-> if you stage the file once, you don't need to repeat this action again during the work.
+
+4. Commit file
+
+= process to create a revision of the file => version stored in Version Control
+
+$ git commit newfile -m "my first commit"
+
+-m = to add comment
+
+-a = we are able to commit all files from repository. 
+
+By using . we will commit changes from current path recursively
+
+4. Add and commit multiple files
+
+! git add . will add all files from your current directory and subdirectories, not from repository's root. If you are in subdirectory, only files from this path will be added.
+

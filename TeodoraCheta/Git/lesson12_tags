@@ -1,0 +1,39 @@
+1. Create tags
+
+-> For lightweight tags git creates something similar to branch that doesn't change.
+-> In case of annotaded tag, git stores it as whole odject in database.
+
+$ git tag
+$ git tag -a v1.0 -m "version 1.0. initial state"
+
+-> use v and number which describes the changes from previous tag
+
+$ git show v1.0 = to see what's inside the tag
+
+$ commit2tag=$(git adog | grep 'testfile-06' | awk '{print $2}' | head -n1)
+
+$ git tag -a v1.5 -m "version 1.5. Some updates" $commit2tag
+
+2. Navigate through tags
+
+$ git tag
+
+$ git checkout v1.0
+
+$ git adpog
+
+-> HEAD is on the same commit as tag v1.0
+
+$ git branch
+
+-> We are detached from master. Makes sense, we jumped back into past.
+
+$ git describe 
+
+$ git describe --tags
+
+-> To check what on what tag you are currently on; if there is no tag created yet, git will throw an error
+
+3. Delete tag
+
+$ git tag -d v1.0

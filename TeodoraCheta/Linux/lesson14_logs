@@ -17,7 +17,7 @@ Files in /var/log directory:
 9. dpkg.log = data about packages management - install, remove, update, etc
  => system logs
 
- -> application logs -> stored for ex in /var/log/nginx
+ -> application logs -> stored for exdm in /var/log/nginx
 
 Watch the logs:
 

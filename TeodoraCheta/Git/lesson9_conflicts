@@ -1,0 +1,16 @@
+How the revert works? It removes changes from selected commit, not from all changes!. Now things should be more clear, right?
+
+change1 commit
+change2 commit
+revert to change1
+That means, we have change2 unattended!
+
+<<<<<< - this is what we have in current branch
+
+====== = center of our conflict
+
+>>>>>> - this wants to be merged / added. In our case this part is empty (as it should be).
+
+$ sed -i '2,5d' testfile-02
+
+We removed mentioned lines. Now the file looks like we want.

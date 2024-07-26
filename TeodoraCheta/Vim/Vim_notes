@@ -1,0 +1,133 @@
+Lesson 1:
+
+1. Move cursor: 
+k - up
+h - left
+l - right
+j - down
+
+2. Exiting vim: 
+press esc
+type :q! - discard changes 
+enter
+
+3. Delete 
+- use x and cursor 
+
+4. Insert
+- press i to enter insert mode
+- press esc to exit
+
+5. Append
+- press a to append text
+- press esc to exit
+
+6. Edit file
+- vim nume_fisier
+- esc :wq to save
+
+Lesson 2:
+
+1. dw and cursor at the beginning of the word to delete it
+2. d$ and cursor after the correct end line to delete the rest
+3. d motion
+d = delete operator
+motion = what the operator will operate on
+A short list of motions:
+    w - until the start of the next word, EXCLUDING its first character.
+    e - to the end of the current word, INCLUDING the last character.
+    $ - to the end of the line, INCLUDING the last character.
+4. typing number before motion repeats it that many times ex: 2w, 3e
+0 to move to start of line
+5. d number motion
+6. dd to delete entire line ; 2dd to delete two lines
+7. u - undo last commands
+U - to fix whole line
+ctrl-r = redo
+
+Lesson 3:
+
+1. dd + p to put a previosuly deleted line after the cursor
+2. rx = to replace the character at the cursor with x
+3. ce = to change until end of word
+-> deletes the word from the cursor to the end and places you in insert mode + esc when done
+-> cc does the same for the whole line
+4. change operator is used with the same motions as delete
+
+Lesson 4:
+
+1. ctrl-g to move in file -G bottom of the file
+- gg top of the file
+-number G - moves to line number
+2. / followed by phrase to search for the phrase
+? searches backward for the phrase
+n - forward search, N backwards
+ctrl-o - where you came from , ctrl-i goes forward
+3. % to search for matching parantheses ),],}
+4. :s/old/new - to substitute first occurence of old with new in file
+:s/old/new/g - substitute globally in the line
+ :#,#s/old/new/g    where #,# are the line numbers of the range
+                               of lines where the substitution is to be done.
+:%s/old/new/g      to change every occurrence in the whole file.
+:%s/old/new/gc     to find every occurrence in the whole file,
+                               with a prompt whether to substitute or not
+
+
+Lesson 5: 
+
+1.  :!command  executes an external command.
+
+      Some useful examples are:
+         (Windows)        (Unix)
+          :!dir            :!ls            -  shows a directory listing.
+          :!del FILENAME   :!rm FILENAME   -  removes file FILENAME.
+2.  :w FILENAME  writes the current Vim file to disk with name FILENAME.
+3.  v  motion  :w FILENAME  saves the Visually selected lines in file
+      FILENAME.
+4.  :r FILENAME  retrieves disk file FILENAME and puts it below the
+      cursor position.
+5.  :r !dir  reads the output of the dir command and puts it below the
+      cursor position.
+
+Lesson 6:
+
+1. Type  o  to open a line BELOW the cursor and start Insert mode.
+     Type  O  to open a line ABOVE the cursor.
+2. Type  a  to insert text AFTER the cursor.
+     Type  A  to insert text after the end of the line.
+3. The  e  command moves to the end of a word.
+4. The  y  operator yanks (copies) text,  p  puts (pastes) it.
+5. Typing a capital  R  enters Replace mode until  <ESC>  is pressed.
+6. Typing ":set xxx" sets the option "xxx".  Some options are:
+        'ic' 'ignorecase'       ignore upper/lower case when searching
+        'is' 'incsearch'        show partial matches for a search phrase
+        'hls' 'hlsearch'        highlight all matching phrases
+     You can either use the long or the short option name.
+7. Prepend "no" to switch an option off:   :set noic
+
+Lesson 7:
+
+1. Type  :help  or press <F1> or <HELP>  to open a help window.
+2. Type  :help cmd  to find help on  cmd .
+3. Type  CTRL-W CTRL-W  to jump to another window.
+4. Type  :q  to close the help window.
+5. Create a vimrc startup script to keep your preferred settings.
+6. When typing a  :  command, press CTRL-D to see possible completions.
+     Press <TAB> to use one completion.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

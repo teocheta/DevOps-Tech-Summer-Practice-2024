@@ -40,6 +40,8 @@ Setting permissions:
 
 u	Owner
 g	Group
-o	Other
+o	Other3
 a	all (owner, group and others)
+
+
 
