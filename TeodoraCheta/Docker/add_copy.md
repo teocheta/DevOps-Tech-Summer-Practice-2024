@@ -25,16 +25,14 @@ Modify /root/Dockerfile (here we also can specify tag):
 
 ADD https://github.com/moby/buildkit.git#v0.10.1 /app
 
-Modify /root/Dockerfile :
 
+Modify /root/Dockerfile :
 
 COPY add_file.txt /app
 
 Build the image:
 
-
 docker build -t app-image-2 .
-
 
 Run the image:
 

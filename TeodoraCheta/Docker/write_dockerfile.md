@@ -112,6 +112,7 @@ docker build --build-arg="GO_VERSION=1.22" .
 
 Add next line to the /root/app/Dockerfile :
 
+
 # syntax=docker/dockerfile:1
 ARG GO_VERSION=1.21
 FROM golang:${GO_VERSION}-alpine AS base
@@ -140,6 +141,7 @@ COPY --from=server /bin/server /
 COPY --from=client /bin/client /
 
 Export binaries:
+
 
 docker build --output=/root/app --target=binaries .
 
