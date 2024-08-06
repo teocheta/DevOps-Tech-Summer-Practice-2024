@@ -1,4 +1,4 @@
-Certainly! Here's the formatted content using Markdown:
+
 
 ---
 
