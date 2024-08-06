@@ -54,3 +54,4 @@
 
 This setup ensures efficient management and operation of a Kubernetes cluster, with master and worker nodes fulfilling distinct but complementary roles.
 
+

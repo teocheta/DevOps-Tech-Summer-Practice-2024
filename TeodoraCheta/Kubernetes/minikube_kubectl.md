@@ -11,5 +11,5 @@
 
 ---
 
-Minikube and Kubectl are key tools for Kubernetes, with Minikube providing a local testing environment and Kubectl offering a powerful CLI for cluster management.
+Minikube and Kubectl are key tools for Kubernetes, with Minikube providing a local testing environment and Kubectl offering a powerful CLI for cluster management.  
 
